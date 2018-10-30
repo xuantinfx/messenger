@@ -1,0 +1,44 @@
+.histories-container {
+    
+}
+
+.histories-search {
+    margin-top: 5px;
+}
+
+.histories-content {
+    margin-top: 5px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: calc(100vh - 100px);
+}
+
+.history-container {
+    padding: 10px 5px;
+    margin: 1px 0;
+    background-color: gainsboro;
+    cursor: pointer;
+    position: relative;
+}
+
+.history-name {
+    font-weight: bold;
+    margin: 0;
+}
+
+.history-content {
+    font-size: 11px;
+    margin: 0;
+}
+
+.history-time {
+    font-size: 11px;
+    color: grey;
+    margin: 0;
+}
+
+.history-addon {
+    position: absolute;
+    right: 10px;
+    top: 20px;
+}

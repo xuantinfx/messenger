@@ -1,0 +1,26 @@
+.homepage-container {
+    background-color: rgb(250, 255, 242);
+    width: 100vw;
+    height: 100vh;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.homepage-header {
+    margin-bottom: 50px;
+    position: relative;
+    top: -50px;
+    font-size: 50px;
+    font-weight: bold;
+    color: rgb(21, 139, 243);
+}
+
+.homepage-login button{
+    text-align: center;
+    background-color: rgb(221, 76, 76);
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    cursor: pointer;
+}

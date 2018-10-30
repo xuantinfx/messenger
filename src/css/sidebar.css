@@ -1,0 +1,17 @@
+.sidebar-container {
+    height: 50px;
+}
+
+.sidebar-container .nav {
+    flex-wrap: unset;
+}
+
+.sidebar-tab-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.sidebar-container .nav-item {
+    width: 50%;
+}

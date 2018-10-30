@@ -1,0 +1,37 @@
+.navbar-container {
+    display: flex;
+    flex-direction: row-reverse;
+    background-color: darkgray; 
+    margin-right: -35px;
+}
+
+.navbar-container p {
+    margin: 0;
+    line-height: 50px;
+    font-size: 20px;
+}
+.navbar-user {
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar-avt {
+    height: 45px;
+    border-radius: 50%;
+    margin: 0px 5px;
+    margin-top: 2px;
+}
+
+.navbar-name {
+    font-weight: bold;
+    color: rgb(17, 17, 16);
+    margin: 0px 5px;
+}
+
+.navbar-logout {
+    cursor: pointer;
+    font-weight: bold;
+    color: rgb(0, 133, 250);
+    text-align: right;
+    margin: 0px 20px;
+}

@@ -1,0 +1,114 @@
+.chatframe-container {
+    position: relative;
+    height: 400px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border: 1px groove rgba(0, 0, 0, 0.452);
+    margin: 20px 0px;
+}
+
+.chatframe-header {
+    text-align: center;
+    margin: -1px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    height: 40px;
+}
+
+.chatframe-header .chatframe-name {
+    font-weight: bold;
+    color: aliceblue;
+    margin: 0;
+}
+
+.chatframe-header .chatframe-status {
+    margin: 0;
+    color: rgb(0, 255, 0);
+    font-size: 11px;
+}
+
+.chatframe-content {
+    overflow-y: scroll;
+    height: calc(400px - 85px);
+    padding: 5px;
+}
+
+.chatframe-mess-container {
+    position: relative;
+}
+
+
+.chatframe-mess-content-left {
+    width: 75%;
+    position: absolute;
+    left: 0;
+}
+
+.chatframe-mess-content-right {
+    width: 75%;
+    position: absolute;
+    right: 0;
+}
+
+.chatframe-avt-left{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+
+}
+
+.chatframe-avt-right{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+}
+
+.chatframe-content-mess-left{
+    position: absolute;
+    left: 50px;
+    word-break: break-all;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: aqua;
+    min-height: 35px;
+}
+
+.chatframe-content-mess-right{
+    position: absolute;
+    right: 50px;
+    word-break: break-all;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: gray;
+    min-height: 35px;
+}
+
+.chatframe-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding-right: 5px;
+    border-top: 1px solid grey;
+    border-radius: 2px;
+    height: 45px;
+}
+
+.chatframe-footer .chatframe-input {
+    border: none;
+    float: left;
+    padding: 10px 15px;
+    width: 90%;
+}
+
+.chatframe-footer .chatframe-addon {
+    float: right;
+    cursor: pointer;
+    top: 5px;
+    position: absolute;
+    right: 15px;
+    font-size: 25px;
+}

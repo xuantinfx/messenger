@@ -1,0 +1,12 @@
+.dashboard-container > .row{
+    width: calc(100vw - 5px);
+}
+
+.dashboard-sidebar {
+    border-right: 1px solid gray;
+    overflow-y: hidden;
+}
+
+.dashboard-content {
+
+}
