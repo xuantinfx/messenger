@@ -2,7 +2,7 @@ import { auth } from '../actions/auth'
 
 const AuthInitialState = {loadingSignUp: false}
 
-export const Auth = (state = AuthInitialState, action) => {
+export default (state = AuthInitialState, action) => {
     switch (action.type) {
         case auth.BEGIN_SIGN_UP_WITH_GOOGLE:
             return {

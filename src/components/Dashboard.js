@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Col, Row} from 'reactstrap'
 import SideBar from './SideBar'
-import AllChatFrame from '../containers/AllChatFrame'
+import AllChatFrame from '../containers/AllChatFrame/AllChatFrame'
 import NavBar from '../containers/NavBar'
 import '../css/dashboard.css'
 import PropTypes from 'prop-types';

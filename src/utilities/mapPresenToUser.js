@@ -1,6 +1,9 @@
 import * as _ from 'lodash'
 
 export default (presence = [], sessions = [], users = []) => {
+    if(presence === null) {
+        presence = [];
+    }
     let res = _.cloneDeep(users);
     // map các user đang online vào
     presence.forEach(({key, value}) => {

@@ -1,8 +1,8 @@
-import AllChatFrame from '../components/AllChatFrame/AllChatFrame'
+import AllChatFrame from '../../components/AllChatFrame/AllChatFrame'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase';
-import mapPresenToUser from '../utilities/mapPresenToUser'
+import mapPresenToUser from '../../utilities/mapPresenToUser'
 
 const mapStateToProps = (state, ownProps) => {
     let { presence, sessions } = state.firebase.ordered;
@@ -12,6 +12,7 @@ const mapStateToProps = (state, ownProps) => {
         groups: state.firestore.ordered.groups,
         auth: state.firebase.auth,
         users: mapPresenToUser(presence, sessions, users),
+        listOpenChat: state.message.listChatBox
     }
 }
 

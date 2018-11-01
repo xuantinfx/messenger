@@ -38,7 +38,8 @@
     position: absolute;
     right: 10px;
     top: 0;
-    color: rgb(126, 117, 117);;
+    color: rgb(126, 117, 117);
+    ;
     font-size: xx-large;
     cursor: pointer;
 }
@@ -50,60 +51,7 @@
 .chatframe-content {
     height: calc(400px - 85px);
     padding: 5px;
-}
-
-.chatframe-mess-container {
-    position: relative;
-}
-
-
-.chatframe-mess-content-left {
-    width: 75%;
-    position: absolute;
-    left: 0;
-}
-
-.chatframe-mess-content-right {
-    width: 75%;
-    position: absolute;
-    right: 0;
-}
-
-.chatframe-avt-left{
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    position: absolute;
-    left: 0;
-
-}
-
-.chatframe-avt-right{
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    position: absolute;
-    right: 0;
-}
-
-.chatframe-content-mess-left{
-    position: absolute;
-    left: 50px;
-    word-break: break-all;
-    padding: 5px 10px;
-    border-radius: 10px;
-    background-color: aqua;
-    min-height: 35px;
-}
-
-.chatframe-content-mess-right{
-    position: absolute;
-    right: 50px;
-    word-break: break-all;
-    padding: 5px 10px;
-    border-radius: 10px;
-    background-color: gray;
-    min-height: 35px;
+    overflow-y: scroll;
 }
 
 .chatframe-footer {
@@ -130,4 +78,86 @@
     position: absolute;
     right: 15px;
     font-size: 25px;
+}
+
+.chatframe-avt {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+.chat-history {
+    padding: 30px 30px 20px;
+    border-bottom: 2px solid white;
+    overflow-y: scroll;
+    height: 575px;
+}
+
+.message-data {
+    margin-bottom: 15px;
+}
+
+.message-data-time {
+    color: lighten(gray, 8%);
+    padding-left: 6px;
+}
+
+.message {
+    color: white;
+    padding: 18px 20px;
+    line-height: 26px;
+    font-size: 16px;
+    border-radius: 7px;
+    margin-bottom: 30px;
+    width: 90%;
+    position: relative;
+    word-break: break-all;
+}
+
+.message:after {
+    bottom: 100%;
+    left: 7%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-bottom-color: green;
+    border-width: 10px;
+    margin-left: -10px;
+}
+
+.my-message {
+    background: green;
+}
+
+.other-message {
+    background: blue;
+}
+
+.other-message:after {
+    border-bottom-color: blue;
+    left: 93%;
+}
+
+.align-left {
+    text-align: left;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.float-right {
+    float: right;
+}
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
 }
