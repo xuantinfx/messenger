@@ -20,6 +20,12 @@
     position: relative;
 }
 
+.history-avt {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
 .history-name {
     font-weight: bold;
     margin: 0;

@@ -2,53 +2,49 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class Message extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            height: null
-        }
-    }
-
-    componentDidMount() {
-        let height = (this.props.isSend ? this.domMessRight.offsetHeight : this.domMessLeft.offsetHeight)
-        if(height !== this.state.height) {
-            this.setState({
-                height: height + 5
-            })
-        }
-    }
-
     renderMessLeft() {
         return (
-            <div className="chatframe-mess-container">
-                <div className="chatframe-mess-content-left">
-                    <img src={this.props.avtUrl} className="chatframe-avt-left" alt=""/>
-                    <span className="chatframe-content-mess-left" ref={e => this.domMessLeft = e}>
-                        {this.props.content}
+            <li>
+                <div className="message-data">
+                    <span className="message-data-name"> 
+                        <img src={this.props.avtUrl} className="chatframe-avt" alt="" />
+                        {this.props.author}
+                    </span>
+                    <span className="message-data-time">
+                    {this.props.time}
                     </span>
                 </div>
-            </div>
+                <div className="message my-message">
+                    {this.props.content}
+                </div>
+            </li>
         )
     }
 
     renderMessRight() {
         return (
-            <div className="chatframe-mess-container">
-                <div className="chatframe-mess-content-right">
-                    <img src={this.props.avtUrl} className="chatframe-avt-right" alt=""/>
-                    <span className="chatframe-content-mess-right" ref={e => this.domMessRight = e}>
-                        {this.props.content}
-                    </span>
+            <li className="clearfix">
+                <div className="message-data align-right">
+                    <span className="message-data-time" >
+                    {this.props.time}
+                    </span> &nbsp; &nbsp;
+                    <span className="message-data-name" >
+                        {this.props.author}
+                    </span> 
+                    <img src={this.props.avtUrl} className="chatframe-avt" alt="" />
                 </div>
-            </div>
+                <div className="message other-message float-right">
+                    {this.props.content}
+                </div>
+            </li>
         )
     }
 
     render() {
         return (
-        <div style={{height: `${this.state.height}px`}}>
-            {(this.props.isSend ? this.renderMessRight() : this.renderMessLeft())}
-        </div>
+            <div className="chatframe-mess-container">
+                {(this.props.isSend ? this.renderMessRight() : this.renderMessLeft())}
+            </div>
         )
     }
 }
@@ -56,7 +52,9 @@ class Message extends Component {
 Message.propTypes = {
     isSend: PropTypes.bool,
     avtUrl: PropTypes.string,
-    content: PropTypes.string
+    content: PropTypes.string,
+    author: PropTypes.string,
+    time: PropTypes.string
 };
 
 export default Message;

@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import History from './History'
 import SearchHistory from './SearchHistory'
-import 'simplebar';
-import 'simplebar/dist/simplebar.css';
 import '../../css/histories.css'
 import PropTypes from 'prop-types';
 import * as _ from 'lodash'
 
 class Histories extends Component {
+    openChat(user) {
+        this.props.openChat(user.id, this.props.auth.uid)
+    }
+
     render() {
         let { users = [], auth = {}} = this.props
 
@@ -23,7 +25,7 @@ class Histories extends Component {
                 </div>
                 <div className="histories-content" >
                 {usersRender.map((user, index) => {
-                    return <History user={user} key={index}/>
+                    return <History user={user} key={index} openChat={this.openChat.bind(this)}/>
                 })}
                 </div>
             </div>
@@ -33,7 +35,8 @@ class Histories extends Component {
 
 Histories.propTypes = {
     users: PropTypes.array,
-    auth: PropTypes.object
+    auth: PropTypes.object,
+    openChat: PropTypes.func.isRequired
 };
 
 export default Histories;
