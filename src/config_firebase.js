@@ -1,5 +1,4 @@
 import firebase from 'firebase/app';
-import 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth'
 import 'firebase/database';
@@ -13,4 +12,7 @@ const firebaseConfig = {
   storageBucket: "messenger-tintin.appspot.com",
   messagingSenderId: "383498967578"
 }
-export default firebase.initializeApp(firebaseConfig)
+
+firebase.initializeApp(firebaseConfig)
+firebase.firestore().settings({ timestampsInSnapshots: true });
+export default firebase;

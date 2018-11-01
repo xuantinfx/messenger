@@ -4,7 +4,6 @@ import '../css/navbar.css'
 
 class NavBar extends Component {
     render() {
-        console.log('nav',this.props.auth)
         return (
             <div className="navbar-container">
                 <div className="navbar-logout" onClick={this.props.logout}>

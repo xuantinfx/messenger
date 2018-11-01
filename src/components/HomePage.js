@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {} from 'reactstrap'
+import { Row, Col, Button} from 'reactstrap'
 import '../css/homepage.css'
 
 class HomePage extends Component {
@@ -10,8 +10,17 @@ class HomePage extends Component {
                 <div className="homepage-header">
                     Phần mềm nhắn tin với giao diện lạ!
                 </div>
-                <div className="homepage-login">
-                    <button onClick={this.props.login}>Đăng nhập bằng tài khoản Google</button>
+                <div className="homepage-signup">
+                    <Row>
+                        <Col sm="12" md={{size: 6, offset: 3}} lg={{size: 4, offset: 4}}>
+                            <Button 
+                                color="danger" 
+                                block={true} 
+                                onClick={this.props.signUp}
+                                disabled={this.props.auth.loadingSignUp}
+                                >Tiếp tục bằng tài khoản Google</Button>
+                        </Col>
+                    </Row>
                 </div>
             </div>
         );
@@ -19,7 +28,8 @@ class HomePage extends Component {
 }
 
 HomePage.propTypes = {
-    login: PropTypes.func.isRequired
+    signUp: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired
 };
 
 export default HomePage

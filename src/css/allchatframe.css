@@ -1,6 +1,6 @@
 .allchatframe-container {
     height: calc(100vh - 60px);
     overflow-x: hidden;
-    overflow-y: scroll;
-    margin-right: -35px;
+    padding-right: 15px;
+    max-width: 100%;
 }

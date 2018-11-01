@@ -8,7 +8,6 @@
 
 .histories-content {
     margin-top: 5px;
-    overflow-y: scroll;
     overflow-x: hidden;
     height: calc(100vh - 100px);
 }
@@ -41,4 +40,6 @@
     position: absolute;
     right: 10px;
     top: 20px;
+    font-weight: bold;
+    color: blue;
 }

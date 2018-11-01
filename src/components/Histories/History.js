@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+import moment from 'moment'
+import 'moment/locale/vi'
 
 class History extends Component {
     render() {
         return (
             <div className="history-container">
-                <p className="history-name">Tin</p>
+                <p className="history-name">{this.props.user.displayName}</p>
                 <p className="history-content">Chao ban!</p>
-                <p className="history-time">5p trước</p>
+                <p className="history-time">
+                {this.props.user && (this.props.user.isOnline ? "Đang online" : (this.props.user.lastOnline ? (moment(this.props.user.lastOnline).locale('vi').fromNow()) : "Offline") )}
+                </p>
                 <div className="history-addon">
-                    Add
+                    Mở
                 </div>
             </div>
         );
@@ -17,7 +21,7 @@ class History extends Component {
 }
 
 History.propTypes = {
-
+    user: PropTypes.object
 };
 
 export default History;

@@ -23,12 +23,31 @@
 
 .chatframe-header .chatframe-status {
     margin: 0;
-    color: rgb(0, 255, 0);
     font-size: 11px;
 }
 
+.chatframe-online {
+    color: rgb(0, 255, 0);
+}
+
+.chatframe-offline {
+    color: rgb(255, 238, 0);
+}
+
+.chatframe-header i {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    color: rgb(126, 117, 117);;
+    font-size: xx-large;
+    cursor: pointer;
+}
+
+.chatframe-header i:hover {
+    color: red;
+}
+
 .chatframe-content {
-    overflow-y: scroll;
     height: calc(400px - 85px);
     padding: 5px;
 }

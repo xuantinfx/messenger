@@ -22,8 +22,10 @@ class Message extends Component {
         return (
             <div className="chatframe-mess-container">
                 <div className="chatframe-mess-content-left">
-                    <img src="img/avatar.jpg" className="chatframe-avt-left" alt=""/>
-                    <span className="chatframe-content-mess-left" ref={e => this.domMessLeft = e}>messsage here asdh aslla á d asd asdasdkasjk asd asd d</span>
+                    <img src={this.props.avtUrl} className="chatframe-avt-left" alt=""/>
+                    <span className="chatframe-content-mess-left" ref={e => this.domMessLeft = e}>
+                        {this.props.content}
+                    </span>
                 </div>
             </div>
         )
@@ -33,8 +35,10 @@ class Message extends Component {
         return (
             <div className="chatframe-mess-container">
                 <div className="chatframe-mess-content-right">
-                    <img src="img/avatar.jpg" className="chatframe-avt-right" alt=""/>
-                    <span className="chatframe-content-mess-right" ref={e => this.domMessRight = e}>message hjasd asdsjashd asdhasks ashasd dassasdhshas a snsjks dhere</span>
+                    <img src={this.props.avtUrl} className="chatframe-avt-right" alt=""/>
+                    <span className="chatframe-content-mess-right" ref={e => this.domMessRight = e}>
+                        {this.props.content}
+                    </span>
                 </div>
             </div>
         )
@@ -50,7 +54,9 @@ class Message extends Component {
 }
 
 Message.propTypes = {
-    isSend: PropTypes.bool
+    isSend: PropTypes.bool,
+    avtUrl: PropTypes.string,
+    content: PropTypes.string
 };
 
 export default Message;

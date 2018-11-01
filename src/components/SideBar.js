@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { TabContent, TabPane, Nav, NavItem, NavLink } from 'reactstrap';
 import classnames from 'classnames';
-import Histories from './Histories/Histories'
+import Histories from '../containers/Histories'
 import MiniMap from './MiniMap/MiniMap'
 //import PropTypes from 'prop-types';
 import '../css/sidebar.css'

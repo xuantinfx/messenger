@@ -1,4 +1,4 @@
-.homepage-container {
+.registerinfo-container {
     background-color: rgb(250, 255, 242);
     width: 100vw;
     height: 100vh;
@@ -8,7 +8,7 @@
     overflow: hidden;
 }
 
-.homepage-header {
+.registerinfo-header {
     margin-bottom: 50px;
     position: relative;
     top: -50px;
@@ -17,11 +17,11 @@
     color: rgb(21, 139, 243);
 }
 
-.homepage-signup{
+.registerinfo-signup{
     font-weight: bold;
     margin-bottom: 20px;
 }
 
-.homepage-login input{
+.registerinfo-signup input{
     margin: 10px 0px;
 }

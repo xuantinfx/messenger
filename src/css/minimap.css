@@ -1,0 +1,30 @@
+.minimap-container {
+    padding: 10px 10px;
+}
+
+.minimap-avtuser {
+    text-align: center;
+    position: relative;
+}
+
+.minimap-avtuser img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 5px;
+    border: 2px solid blue;
+    cursor: pointer;
+}
+
+.minimap-avtuser i{
+    position: absolute;
+    color: rgb(126, 117, 117);
+    font-weight: bold;
+    top: 5px;
+    right: -15px;
+    cursor: pointer;
+}
+
+.minimap-avtuser i:hover{
+    color: red;
+}

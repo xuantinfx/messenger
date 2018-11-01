@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 class NavBarContainer extends Component {
     logout() {
         this.props.firebase.logout();
+        window.location.reload();
     }
     render() {
         return (
@@ -20,5 +21,6 @@ NavBarContainer.propTypes = {
     auth: PropTypes.object.isRequired,
     firebase: PropTypes.object.isRequired
 };
+
 
 export default compose(firebaseConnect(), connect(({firebase: {auth}}) => ({auth})))(NavBarContainer)

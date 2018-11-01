@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import HomePage from '../containers/HomePage'
-import DashBoard from '../components/Dashboard'
+import DashBoard from '../containers/Dashboard'
 import Loading from '../components/Loading'
 import { isLoaded } from 'react-redux-firebase'
 
@@ -21,7 +21,7 @@ class Auth extends Component {
 }
 
 Auth.propTypes = {
-    auth: PropTypes.object.isRequired
+    auth: PropTypes.object.isRequired,
 };
 
 export default Auth;
