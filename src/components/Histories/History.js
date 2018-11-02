@@ -14,13 +14,13 @@ class History extends Component {
                 <img src={this.props.user.avatarUrl} alt="avt" className="align-self-center mr-3 history-avt"/>
                 <div className="media-body">
                     <p className="history-name">{this.props.user.displayName}</p>
-                    <p className="history-content">Chao ban!</p>
+                    <p className="history-content">{this.props.user.lastMessage}</p>
                     <p className="history-time">
                     {this.props.user && (this.props.user.isOnline ? "Đang online" : (this.props.user.lastOnline ? (moment(this.props.user.lastOnline).locale('vi').fromNow()) : "Offline") )}
                     </p>
-                    <div className="history-addon">
+                    {/* <div className="history-addon">
                         Mở
-                    </div>
+                    </div> */}
                 </div>
             </div>
         );
