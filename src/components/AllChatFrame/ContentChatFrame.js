@@ -12,6 +12,7 @@ class ContentChatFrame extends Component {
             key={index}
             avtUrl={members[mess.auth].avatarUrl}
             content={mess.content}
+            type={mess.type}
             author={members[mess.auth].displayName}
             time={moment(mess.time).local('vi').fromNow()}
             />

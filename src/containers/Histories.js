@@ -7,10 +7,11 @@ import { openChat } from '../actions/message'
 
 const mapStateToProps = (state, ownProps) => {
     let { presence, sessions } = state.firebase.ordered;
-    let { users } = state.firestore.ordered;
+    let { users, groups } = state.firestore.ordered;
 
     return {    
         users: mapPresenToUser(presence, sessions, users),
+        groups: groups,
         auth: state.firebase.auth
     }
 }
@@ -25,5 +26,5 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
 export default compose(
     firebaseConnect(['presence', 'sessions']),
-    firestoreConnect(['users']),
+    firestoreConnect(['users', 'groups']),
     connect(mapStateToProps, mapDispatchToProps))(Histories)

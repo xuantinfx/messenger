@@ -7,9 +7,19 @@ import PropTypes from 'prop-types';
 
 class AllChatFrame extends Component {
     
-    renderChatFrame(myGroup) {
+    renderChatFrame(myGroup, totalFrame) {
+        let size = {md: 12, lg: 6, xl: 4}
+        if(totalFrame === 1) {
+            size.md = 12;
+            size.lg = 12;
+            size.xl = 12;
+        } else if(totalFrame === 2) {
+            size.md = 12;
+            size.lg = 6;
+            size.xl = 6;
+        }
         return (
-            <Col md="12" lg="6" xl="4" key={myGroup.id}>
+            <Col md={size.md} lg={size.lg} xl={size.xl} key={myGroup.id}>
                 <ChatFrame group={myGroup} auth={this.props.auth}/>
             </Col>
         )
@@ -69,7 +79,7 @@ class AllChatFrame extends Component {
             <div className="allchatframe-container" /*data-simplebar*/>
                 <Row>
                 {myGroups.map((myGroup) => {
-                    return this.renderChatFrame(myGroup);
+                    return this.renderChatFrame(myGroup, myGroups.length);
                 })}
                 </Row>
             </div>

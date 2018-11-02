@@ -4,6 +4,7 @@ import ContentChatFrame from './ContentChatFrame'
 import FooterChatFrame from './FooterChatFrame'
 import '../../css/chatframe.css'
 import PropTypes from 'prop-types';
+import typeMessage from '../../constance/typeMessgae'
 
 class ChatFrame extends Component {
     shouldComponentUpdate(nextProps, nextState) {
@@ -13,20 +14,36 @@ class ChatFrame extends Component {
         return true;
     }
 
-    sendMessage(content, type) {
+    sendMessage(content) {
         let group = this.props.group,
             author = this.props.auth.uid, 
             time = new Date().getTime();
 
-        //group, author, content, type, time
+        // group, author, content, type, time
         let info = {
             group,
             author,
             content,
-            type,
+            type: typeMessage.message,
             time
         }
         this.props.sendMessage(info)
+    }
+
+    sendMessagePhoto(photo) {
+        let group = this.props.group,
+            author = this.props.auth.uid, 
+            time = new Date().getTime();
+
+            // group, author, photo, type, time
+        let info = {
+            group,
+            author,
+            photo,
+            type: typeMessage.photo,
+            time
+        }
+        this.props.sendMessagePhoto(info)
     }
 
     render() {
@@ -34,7 +51,7 @@ class ChatFrame extends Component {
             <div className="chatframe-container">
                 <HeaderChatFrame group={this.props.group} auth={this.props.auth} closeChatBox={this.props.closeChatBox}/>
                 <ContentChatFrame  group={this.props.group} auth={this.props.auth}/>
-                <FooterChatFrame sendMessage={this.sendMessage.bind(this)}/>
+                <FooterChatFrame sendMessage={this.sendMessage.bind(this)} sendMessagePhoto={this.sendMessagePhoto.bind(this)}/>
             </div>
         );
     }
@@ -44,6 +61,7 @@ ChatFrame.propTypes = {
     group: PropTypes.object,
     auth: PropTypes.object,
     sendMessage: PropTypes.func,
+    sendMessagePhoto: PropTypes.func,
     closeChatBox: PropTypes.func
 };
 
