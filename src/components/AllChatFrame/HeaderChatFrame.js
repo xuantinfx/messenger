@@ -2,9 +2,15 @@ import React, { Component } from 'react';
 import StatusChatFrame from './StatusChatFrame'
 import PropTypes from 'prop-types';
 import moment from 'moment'
-import 'moment/locale/vi'
+import classnames from 'classnames';
+import 'moment/locale/vi';
 
 class HeaderChatFrame extends Component {
+    onClickStart() {
+        let funcCall = this.props.group.isStar ? this.props.unMarkStarUser : this.props.markStarUser;
+        funcCall(this.opponentMem.id);
+    }
+
     render() {
         let defaultvalue = -1;
         let { members } = this.props.group;
@@ -41,13 +47,18 @@ class HeaderChatFrame extends Component {
             }
 
             groupName = opponentMem.displayName;
+            this.opponentMem = opponentMem;
         }
 
         return (
             <div className="chatframe-header bg-primary">
+                {this.props.group.memberCount === 2 && <i 
+                    className={classnames({"fas fa-star chat-star": true, "chat-star-active": this.props.group.isStar})}
+                    onClick={this.onClickStart.bind(this)}
+                ></i>}
                 <p className="chatframe-name">{groupName}</p>
                 <StatusChatFrame status={status}/>
-                <i onClick={() => {this.props.closeChatBox(this.props.group.id)}} className="fas fa-times"></i>
+                <i onClick={() => {this.props.closeChatBox(this.props.group.id)}} className="fas fa-times chat-close"></i>
             </div>
         );
     }
@@ -56,7 +67,9 @@ class HeaderChatFrame extends Component {
 HeaderChatFrame.propTypes = {
     group: PropTypes.object,
     auth: PropTypes.object,
-    closeChatBox: PropTypes.func.isRequired
+    closeChatBox: PropTypes.func.isRequired,
+    unMarkStarUser: PropTypes.func,
+    markStarUser: PropTypes.func
 };
 
 export default HeaderChatFrame;

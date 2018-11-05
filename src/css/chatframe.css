@@ -35,17 +35,35 @@
     color: rgb(255, 238, 0);
 }
 
-.chatframe-header i {
+.chatframe-header .chat-star {
     position: absolute;
-    right: 10px;
+    left: 10px;
     top: 0;
-    color: rgb(126, 117, 117);
-    ;
+    color: rgb(255, 255, 255);
     font-size: xx-large;
     cursor: pointer;
 }
 
-.chatframe-header i:hover {
+.chatframe-header .chat-star-active {
+    color: rgb(238, 255, 0);
+}
+
+.chatframe-header .chat-star:hover {
+    color: rgb(238, 255, 0);
+}
+
+
+
+.chatframe-header .chat-close {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    color: rgb(126, 117, 117);
+    font-size: xx-large;
+    cursor: pointer;
+}
+
+.chatframe-header .chat-close:hover {
     color: red;
 }
 
@@ -132,7 +150,7 @@
 
 .message-photo {
     border-radius: 20px;
-    max-height: 250px;
+    width: 100%;
 }
 
 .my-message {

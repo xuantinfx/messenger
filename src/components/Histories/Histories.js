@@ -29,8 +29,22 @@ class Histories extends Component {
         })
     }
 
+    markStarUser(userId) {
+        //{ authId, userId, stars = [] }
+        this.props.markStarUser({
+            authId: this.props.auth.uid, userId, stars: this.props.stars
+        })
+    }
+
+    unMarkStarUser(userId) {
+        //{ authId, userId, stars = [] }
+        this.props.unMarkStarUser({
+            authId: this.props.auth.uid, userId, stars: this.props.stars
+        })
+    }
+
     render() {
-        let { users = [], auth = {}, groups = []} = this.props
+        let { users = [], auth = {}, groups = [], stars = []} = this.props
 
         // Lọc các user không phải mình ra
         let usersRender = _.cloneDeep(users.filter(user => {
@@ -69,8 +83,23 @@ class Histories extends Component {
             }
         });
 
-        // Sắp xếp theo nhắn tin gần nhất
+        //map star vào 
+        usersRender.map(user => {
+            user.isStar = false;
+            if(_.findIndex(stars, o => o === user.id) >= 0) {
+                user.isStar = true;
+            }
+            return user;
+        })
+
+        // Sắp xếp theo nhắn tin gần nhất và star online lên đầu
         usersRender.sort((user1, user2) => {
+            if(user1.isStar && user1.isOnline) {
+                return -1;
+            } else if(user2.isStar && user2.isOnline) {
+                return 1;
+            }
+
             let res = user2.lastTimeMessage - user1.lastTimeMessage;
             if(res === 0) {
                 res = (user2.displayName > user1.displayName ? -1 : (user1.displayName > user2.displayName ? 1 : 0))
@@ -78,7 +107,6 @@ class Histories extends Component {
             return res;
         })
 
-        
         return (
             <div className="histories-container">
                 <div className="histories-search">
@@ -86,7 +114,13 @@ class Histories extends Component {
                 </div>
                 <div className="histories-content" >
                 {usersRender.map((user, index) => {
-                    return <History user={user} key={index} openChat={this.openChat.bind(this)}/>
+                    return <History 
+                        user={user} 
+                        key={index} 
+                        openChat={this.openChat.bind(this)}
+                        markStarUser={this.markStarUser.bind(this)}
+                        unMarkStarUser={this.unMarkStarUser.bind(this)}
+                        />
                 })}
                 </div>
             </div>
@@ -98,7 +132,10 @@ Histories.propTypes = {
     users: PropTypes.array,
     groups: PropTypes.array,
     auth: PropTypes.object,
-    openChat: PropTypes.func.isRequired
+    openChat: PropTypes.func.isRequired,
+    stars: PropTypes.array,
+    markStarUser: PropTypes.func,
+    unMarkStarUser: PropTypes.func,
 };
 
 export default Histories;
