@@ -16,31 +16,35 @@
     padding: 10px 5px;
     margin: 1px 0;
     background-color: gainsboro;
-    cursor: pointer;
     position: relative;
+    padding-right: 40px;
 }
 
 .history-avt {
     width: 30px;
     height: 30px;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 .history-name {
     font-weight: bold;
     margin: 0;
+    cursor: pointer;
 }
 
 .history-content {
     font-size: 11px;
     margin: 0;
     word-break: break-all;
+    cursor: pointer;
 }
 
 .history-time {
     font-size: 11px;
     color: grey;
     margin: 0;
+    cursor: pointer;
 }
 
 .history-addon {
@@ -49,4 +53,20 @@
     top: 20px;
     font-weight: bold;
     color: blue;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.history-addon .chat-star {
+    color: rgb(255, 255, 255);
+    font-size: x-large;
+    cursor: pointer;
+}
+
+.history-addon .chat-star-active {
+    color: rgb(238, 255, 0);
+}
+
+.history-addon .chat-star:hover {
+    color: rgb(238, 255, 0);
 }
