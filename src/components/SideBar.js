@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { TabContent, TabPane, Nav, NavItem, NavLink } from 'reactstrap';
 import classnames from 'classnames';
 import Histories from '../containers/Histories'
-import MiniMap from './MiniMap/MiniMap'
+import MiniMap from '../containers/MiniMap'
 //import PropTypes from 'prop-types';
 import '../css/sidebar.css'
 let histories = {value: 'histories', label: "Histories"}, minimap = {value: 'minimap', label: "Mini Map"};

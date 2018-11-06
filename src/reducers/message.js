@@ -2,7 +2,8 @@ import { message } from '../actions/message'
 import * as _ from 'lodash'
 
 const messageInitialState = {
-    listChatBox: []
+    listChatBox: [],
+    listDomInput: []
 }
 export default (state = messageInitialState, action) => {
     switch (action.type) {
@@ -22,6 +23,12 @@ export default (state = messageInitialState, action) => {
             return {
                 ...state,
                 listChatBox
+            }
+        }
+        case message.UPDATE_DOM_INPUT: {
+            return {
+                ...state,
+                listDomInput: [...state.listDomInput, {DOM: action.DOM, idGroup: action.idGroup}]
             }
         }
         default:

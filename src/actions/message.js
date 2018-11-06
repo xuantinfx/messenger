@@ -3,7 +3,16 @@ import mapGroupId from '../utilities/mapGroupId'
 
 export const message = {
     OPEN_CHAT_BOX: "OPEN_CHAT_BOX",
-    CLOSE_CHAT_BOX: "CLOSE_CHAT_BOX"
+    CLOSE_CHAT_BOX: "CLOSE_CHAT_BOX",
+    UPDATE_DOM_INPUT: "UPDATE_DOM_INPUT"
+}
+
+export const updateDomInput = (DOM, idGroup) => {
+    return {
+        type: message.UPDATE_DOM_INPUT,
+        DOM,
+        idGroup
+    }
 }
 
 export const sendMessage = ({ group, author, content, type, time }) => {
