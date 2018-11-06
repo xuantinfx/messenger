@@ -33,6 +33,7 @@ class FooterChatFrame extends Component {
 
     componentDidMount() {
         this.props.updateDomInput(this.domInput);
+        this.domInput.focus({preventScroll: false})
     }
 
     render() {

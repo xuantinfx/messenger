@@ -8,6 +8,7 @@
     "lodash": "^4.17.11",
     "moment": "^2.22.2",
     "react": "^16.6.0",
+    "react-beautiful-dnd": "^9.0.2",
     "react-dom": "^16.6.0",
     "react-microlink": "^2.3.0",
     "react-redux": "^5.1.0",
