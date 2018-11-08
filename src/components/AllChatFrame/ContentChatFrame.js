@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Message from './Message'
 import PropTypes from 'prop-types';
 import moment from 'moment'
+import PendingMessages from './PendingMessages'
 import 'moment/locale/vi'
 
 class ContentChatFrame extends Component {
@@ -38,6 +39,7 @@ class ContentChatFrame extends Component {
                 {messages.map((mess, index) => {
                     return this.renderMessage(mess, index);
                 })}
+                <PendingMessages sendingMessage={this.props.sendingMessage} avtUrl={this.props.auth.photoURL}/>
             </ul>
         );
     }
@@ -45,7 +47,8 @@ class ContentChatFrame extends Component {
 
 ContentChatFrame.propTypes = {
     group: PropTypes.object,
-    auth: PropTypes.object
+    auth: PropTypes.object,
+    sendingMessage: PropTypes.array
 };
 
 export default ContentChatFrame;

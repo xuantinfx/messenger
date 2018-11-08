@@ -75,7 +75,11 @@ class ChatFrame extends Component {
                     markStarUser={this.markStarUser.bind(this)}
                     unMarkStarUser={this.unMarkStarUser.bind(this)}
                 />
-                <ContentChatFrame  group={this.props.group} auth={this.props.auth}/>
+                <ContentChatFrame  
+                    group={this.props.group} 
+                    auth={this.props.auth}
+                    sendingMessage={this.props.sendingMessage}
+                    />
                 <FooterChatFrame 
                     sendMessage={this.sendMessage.bind(this)} 
                     sendMessagePhoto={this.sendMessagePhoto.bind(this)}
@@ -95,7 +99,8 @@ ChatFrame.propTypes = {
     markStarUser: PropTypes.func,
     unMarkStarUser: PropTypes.func,
     stars: PropTypes.array,
-    updateDomInput: PropTypes.func
+    updateDomInput: PropTypes.func,
+    sendingMessage: PropTypes.array
 };
 
 export default ChatFrame;

@@ -5,7 +5,8 @@ import { markStarUser, unMarkStarUser} from '../../actions/user'
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        stars: state.user.stars
+        stars: state.user.stars,
+        sendingMessage: state.message.sendingMessage[ownProps.group.id] || []
     }
 }
 
