@@ -153,6 +153,10 @@
     width: 100%;
 }
 
+.message-pending {
+    background: gray !important;
+}
+
 .my-message {
     background: green;
 }

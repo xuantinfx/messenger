@@ -18,10 +18,10 @@ class FooterChatFrame extends Component {
 
     onClickSendPhoto() {
         this.DomeFile.click();
+        //this.domInput.focus({preventScroll: true})
     }
 
     onChangePhoto(e) {
-        // console.log(e.target.files);
         this.props.sendMessagePhoto(e.target.files[0])
     }
 
@@ -31,15 +31,22 @@ class FooterChatFrame extends Component {
         })
     }
 
+    componentDidMount() {
+        this.props.updateDomInput(this.domInput);
+        this.domInput.focus({preventScroll: false})
+    }
+
     render() {
         return (
             <div className="chatframe-footer">
                 <form onSubmit={e => this.onSubmit(e)}>
                     <input 
+                        type="text"
                         className="chatframe-input" 
                         placeholder="Nhập nội dung..."
                         onChange={this.onChange.bind(this)}
                         value={this.state.content}
+                        ref={e => this.domInput = e}
                         />
                     <div className="chatframe-addon">
                         <i 
@@ -60,7 +67,8 @@ class FooterChatFrame extends Component {
 
 FooterChatFrame.propTypes = {
     sendMessage: PropTypes.func.isRequired,
-    sendMessagePhoto: PropTypes.func.isRequired
+    sendMessagePhoto: PropTypes.func.isRequired,
+    updateDomInput: PropTypes.func
 };
 
 export default FooterChatFrame;

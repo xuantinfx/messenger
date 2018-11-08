@@ -11,6 +11,7 @@ import { compose } from 'redux'
 import { reactReduxFirebase, getFirebase } from 'react-redux-firebase'
 import { getFirestore, reduxFirestore } from 'redux-firestore'
 import thunk from 'redux-thunk'
+//import logger from 'redux-logger'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
