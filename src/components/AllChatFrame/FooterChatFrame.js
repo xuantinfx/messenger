@@ -47,6 +47,7 @@ class FooterChatFrame extends Component {
                         onChange={this.onChange.bind(this)}
                         value={this.state.content}
                         ref={e => this.domInput = e}
+                        onFocus={this.props.onFocus}
                         />
                     <div className="chatframe-addon">
                         <i 

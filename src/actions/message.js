@@ -1,5 +1,6 @@
 import * as _ from 'lodash'
 import mapGroupId from '../utilities/mapGroupId'
+import isReadedMessage from '../utilities/isReadedMessage'
 
 export const message = {
     OPEN_CHAT_BOX: "OPEN_CHAT_BOX",
@@ -20,7 +21,7 @@ export const sendingMessage = (groupId, content, typeMess, idMess) => {
     }
 }
 
-const updatePercentUpload = (groupId, idMess, percent) => {
+export const updatePercentUpload = (groupId, idMess, percent) => {
     return {
         type: message.UPDATE_PERCENT_UPLOAD,
         groupId,
@@ -46,6 +47,7 @@ export const updateDomInput = (DOM, idGroup) => {
 }
 
 export const sendMessage = ({ group, author, content, type, time }) => {
+    group = _.cloneDeep(group);
     return (dispatch, getState, { getFirebase, getFirestore }) => {
         let firestore = getFirestore();
         let id = group.id;
@@ -65,7 +67,8 @@ export const sendMessage = ({ group, author, content, type, time }) => {
             auth: author,
             content,
             type,
-            time
+            time,
+            readers: [author]
         })
 
         let idMess = '' + Math.random();
@@ -154,6 +157,40 @@ export const closeChatBox = (groupId) => {
     return {
         type: message.CLOSE_CHAT_BOX,
         groupId
+    }
+}
+
+export const onFocusChatFrame = (group, uid) => {
+    group = _.cloneDeep(group);
+    return (dispatch, getState, { getFirebase, getFirestore }) => {
+        let firestore = getFirestore();
+        let id = group.id;
+
+        //thay distionary user thành user thường
+        let members = [];
+        for (let id in group.members) {
+            members.push(id);
+        }
+        group.members = members;
+        //loại trường id
+        group = _.omit(group, ["id"])
+
+        //update readers
+        if(group.messages) {
+            if(!isReadedMessage(group, uid)) {
+                let lastMessage = group.messages[group.messages.length - 1];
+                lastMessage.readers = lastMessage.readers || [];
+                lastMessage.readers.push(uid);
+                lastMessage.readers = _.uniq(lastMessage.readers);
+            }
+        }
+        firestore.collection('groups').doc(id).set(group)
+        .then(res => {
+
+        })
+        .catch(err => {
+
+        })
     }
 }
 

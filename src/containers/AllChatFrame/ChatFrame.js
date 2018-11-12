@@ -1,6 +1,6 @@
 import ChatFrame from '../../components/AllChatFrame/ChatFrame';
 import { connect } from 'react-redux'
-import { sendMessage, closeChatBox, sendMessagePhoto, updateDomInput } from '../../actions/message';
+import { sendMessage, closeChatBox, sendMessagePhoto, updateDomInput, onFocusChatFrame } from '../../actions/message';
 import { markStarUser, unMarkStarUser} from '../../actions/user'
 
 const mapStateToProps = (state, ownProps) => {
@@ -30,6 +30,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         updateDomInput: (DOM, idGroup) => {
             dispatch(updateDomInput(DOM, idGroup));
         },
+        onFocusChatFrame: (group, uid) => {
+            dispatch(onFocusChatFrame(group, uid))
+        }
     }
 }
 

@@ -5,6 +5,8 @@ import FooterChatFrame from './FooterChatFrame'
 import '../../css/chatframe.css'
 import PropTypes from 'prop-types';
 import typeMessage from '../../constance/typeMessgae'
+import isReadedMessage from '../../utilities/isReadedMessage'
+import classnames from 'classnames';
 import _ from 'lodash'
 
 class ChatFrame extends Component {
@@ -29,6 +31,10 @@ class ChatFrame extends Component {
             time
         }
         this.props.sendMessage(info)
+    }
+
+    onFocus() {
+        this.props.onFocusChatFrame(this.props.group, this.props.auth.uid);
     }
 
     sendMessagePhoto(photo) {
@@ -66,8 +72,9 @@ class ChatFrame extends Component {
     }
 
     render() {
+        let isReader = isReadedMessage(this.props.group, this.props.auth.uid);
         return (
-            <div className="chatframe-container">
+            <div className={classnames({"chatframe-container": true, "chat-frame-not-read": !isReader})}>
                 <HeaderChatFrame 
                     group={this.props.group} 
                     auth={this.props.auth} 
@@ -84,6 +91,7 @@ class ChatFrame extends Component {
                     sendMessage={this.sendMessage.bind(this)} 
                     sendMessagePhoto={this.sendMessagePhoto.bind(this)}
                     updateDomInput={this.updateDomInput.bind(this)}
+                    onFocus={this.onFocus.bind(this)}
                     />
             </div>
         );
@@ -100,7 +108,8 @@ ChatFrame.propTypes = {
     unMarkStarUser: PropTypes.func,
     stars: PropTypes.array,
     updateDomInput: PropTypes.func,
-    sendingMessage: PropTypes.array
+    sendingMessage: PropTypes.array,
+    onFocusChatFrame: PropTypes.func
 };
 
 export default ChatFrame;

@@ -4,6 +4,7 @@ import SearchHistory from './SearchHistory'
 import '../../css/histories.css'
 import PropTypes from 'prop-types';
 import * as _ from 'lodash'
+import isReadedMessage from '../../utilities/isReadedMessage'
 import mapGroupId from '../../utilities/mapGroupId'
 import typeMessage from '../../constance/typeMessgae'
 
@@ -60,7 +61,7 @@ class Histories extends Component {
             })
         }
 
-        // Map tin nhắn cuối cùng vào
+        // Map tin nhắn cuối cùng và trạng thái đã đọc vào
         usersRender.forEach(user => {
             let groupId = mapGroupId(user.id, auth.uid);
             let i;
@@ -74,12 +75,16 @@ class Histories extends Component {
                         user.lastMessage = objLastMessgae.content;
                     }
                     user.lastTimeMessage = groups[i].messages[groups[i].messages.length - 1].time;
+                    // Xem thử tin nhắn cuối cùng đọc chưa
+                    user.isReadedMessage = isReadedMessage(groups[i], auth.uid);
                     break;
                 }
             } 
             // Nếu chưa nhắn tin thì gán bằng 0 để nó xuống dưới cùng
             if(i === groups.length) {
                 user.lastTimeMessage = 0;
+                //chưa gửi gì xem như là đã đọc
+                user.isReadedMessage = true;
             }
         });
 
