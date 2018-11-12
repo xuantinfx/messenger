@@ -20,6 +20,10 @@
     padding-right: 40px;
 }
 
+.history-not-read {
+    background-color: #ff00004a;
+}
+
 .history-avt {
     width: 30px;
     height: 30px;

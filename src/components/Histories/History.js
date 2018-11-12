@@ -17,7 +17,7 @@ class History extends Component {
 
     render() {
         return (
-            <div className="history-container media">
+            <div className={classnames({ "history-container media": true, "history-not-read": !this.props.user.isReadedMessage })}>
                 <img src={this.props.user.avatarUrl} alt="avt" className="align-self-center mr-3 history-avt" onClick={this.openChat.bind(this)}/>
                 <div className="media-body">
                     <p className="history-name" onClick={this.openChat.bind(this)}>{this.props.user.displayName}</p>

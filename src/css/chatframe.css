@@ -190,3 +190,7 @@
     clear: both;
     height: 0;
 }
+
+.chat-frame-not-read {
+    background-color: #ff00004a;
+}
